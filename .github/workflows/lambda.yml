@@ -6,7 +6,7 @@ on:
       branches:
         - main
       paths:
-        - 'lambda/'
+        - 'lambda/**'
 
 jobs: 
     deploy-lambda: #name of our job
@@ -28,7 +28,7 @@ jobs:
           uses: aws-actions/configure-aws-credentials@v1
           with:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY-ID }}
-            aws-access-secret-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws-region: us-east-2
 
         - name: Deploy Lambda Function #Zips Lambda and updates lambda function
