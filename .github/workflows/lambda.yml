@@ -15,7 +15,7 @@ jobs:
         - uses: actions/checkout@v4
 
         - name: Set up Python # Sets up python
-          uses: actions/setup-python@v4
+          uses: actions/setup-python@latest
           with:
             python-version: '3.12'
 
@@ -25,7 +25,7 @@ jobs:
             pip install -r  LAMBDA/requirements.txt -t lambda/
 
         - name: Configure AWS Credentials #Sets up AWS Credentials
-          uses: aws-actions/configure-aws-credentials@v2
+          uses: aws-actions/configure-aws-credentials@latest
           with:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
