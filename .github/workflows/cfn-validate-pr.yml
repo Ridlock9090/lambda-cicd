@@ -29,7 +29,7 @@ jobs:
 
     - name: Deploy our stack
       run: |
-        stack_name="pr-test-stack-${{ github.event.pull_request.number }}-$(date +%s)"
+        stack_name="pr-test-stack-${{ github.event.pull_request.number }}"
         aws cloudformation create-stack --stack-name $stack_name --template-body file://cloudformation/s3-bucket.yml --parameters ParameterKey=Environment,ParameterValue=test
 
     - name: Comment on the PR
@@ -41,7 +41,7 @@ jobs:
                  issue_number: context.issue.number,
                  owner: context.repo.owner,
                  repo: context.repo.repo,
-                 body: 'Cloudformation test stack deployed. Stack name: pr-test-stack-${{ github.event.pull_request.number}}-$(date +%s)'
+                 body: 'Cloudformation test stack deployed. Stack name: pr-test-stack-${{ github.event.pull_request.number}}'
                 })
 
                 
@@ -58,5 +58,5 @@ jobs:
             
     - name: Delete Test stack
       run: |
-            stack_name="pr-test-stack-${{ github.event.pull_request.number }}-$(date +%s)"
+            stack_name="pr-test-stack-${{ github.event.pull_request.number }}"
             aws cloudformation delete-stack --stack-name $stack_name
