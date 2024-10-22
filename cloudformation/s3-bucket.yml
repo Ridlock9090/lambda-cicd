@@ -13,7 +13,7 @@ Resources:
   MyS3Bucket:
     Type: 'AWS::S3::Bucket'
     Properties: 
-      BucketName: !Sub '${AWS::Stackname}-${Environment}-bucket'
+      BucketName: !Sub '${AWS::StackName}-${Environment}-bucket'
       Tags:
         - Key: Project
           Value: GitHubActionsTesting
@@ -21,5 +21,7 @@ Resources:
           Value: Environment
 Outputs:
   BucketName:
-  Description: 'Name of created S3 Bucket'
-  Value: !Ref MyS3Bucket
+    Description: 'Name of created S3 Bucket'
+    Value: !Ref MyS3Bucket
+
+  
