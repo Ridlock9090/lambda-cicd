@@ -25,12 +25,12 @@ jobs:
           aws-region: us-east-1
 
       - name: Validate CloudFormation
-        run: aws cloudformation validate-template --template-body file://cloudformation/s3-bucket.yaml
+        run: aws cloudformation validate-template --template-body file://cloudformation/s3-bucket.yml
 
       - name: Deploy stack
         run: |
           stack_name="ridly-pr-test-stack-${{ github.event.pull_request.number }}"
-          aws cloudformation create-stack --stack-name $stack_name --template-body file://cloudformation/s3-bucket.yaml --parameters ParameterKey=Environment,ParameterValue=dev
+          aws cloudformation create-stack --stack-name $stack_name --template-body file://cloudformation/s3-bucket.yml --parameters ParameterKey=Environment,ParameterValue=dev
 
       - name: Wait for stack to complete
         uses: actions/github-script@v7
