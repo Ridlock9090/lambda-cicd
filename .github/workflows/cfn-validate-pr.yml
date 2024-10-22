@@ -4,6 +4,7 @@ on:
  pull_request:
    paths:
      - 'cloudformation/**'
+   types: [closed] 
 
 permissions:
  pull-requests: write
@@ -42,6 +43,8 @@ jobs:
                  repo: context.repo.repo,
                  body: 'Cloudformation test stack deployed. Stack name: pr-test-stack-${{ github.event.pull_request.number}}'
                 })
+
+                
  cleanup-on-merge:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
