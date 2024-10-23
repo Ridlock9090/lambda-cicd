@@ -60,6 +60,13 @@ jobs:
       run: |
             stack_name="ridly-pr-test-stack-${{ github.event.pull_request.number }}"
             aws cloudformation delete-stack --stack-name $stack_name
+              deletion_output=$(aws cloudformation delete-stack --stack-name "$stack_name" 2>&1)
+              if [ $? -ne 0 ]; then
+                echo "Failed to delete stack: $deletion_output"
+                exit 1
+              else
+                echo "Stack deletion initiated successfully."
+              fi
 
 
             
