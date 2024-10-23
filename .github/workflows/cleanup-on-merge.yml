@@ -3,7 +3,7 @@ name: Clean up on merge
 on:
   pull_request:
     paths: 
-      - 'lambda-cicd/**'
+      - 'cloudformation/**'
     types: [closed]  
 
 permissions:
