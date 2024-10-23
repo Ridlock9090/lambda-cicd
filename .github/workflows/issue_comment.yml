@@ -34,9 +34,7 @@ jobs:
         run: |
           gh api -X POST\
           https://api.github.com/repos/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
-          -f body='
-          Comment but from the API call not action
-          '
+          -f body='Comment but from the API call not action'
   
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
