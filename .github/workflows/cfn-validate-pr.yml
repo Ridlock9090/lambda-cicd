@@ -4,7 +4,7 @@ on:
  pull_request:
    paths:
      - 'cloudformation/**'
-   types: [closed] 
+   types: [opened] 
 
 permissions:
  pull-requests: write
