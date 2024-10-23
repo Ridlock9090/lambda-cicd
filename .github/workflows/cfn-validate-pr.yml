@@ -4,7 +4,8 @@ on:
   pull_request:
     paths:
       - 'cloudformation/**'
-    types: [opened] 
+      - 'lambda-cicd/**'
+    types: [opened, closed] 
 
 permissions:
   pull-requests: write
@@ -44,21 +45,7 @@ jobs:
                  body: 'Cloudformation test stack deployed. Stack name: ridly-pr-test-stack-${{ github.event.pull_request.number }}'
                 })
 
----
-
-name: Cleanup on PR Merge
-
-on:
-  pull_request:
-    paths:
-      - 'lambda-cicd/**'
-    types: [opened, closed]  # Include both opened and closed types
-
-  permissions:
-   pull-requests: write
-   contents: read     
-
-jobs:
+                
   cleanup-on-merge:
     runs-on: ubuntu-latest
     if: github.event.action == 'closed' && github.event.pull_request.merged == true  # Correct condition
