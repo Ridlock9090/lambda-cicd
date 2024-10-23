@@ -4,7 +4,7 @@ on:
  pull_request:
    paths:
      - 'cloudformation/**'
-   types: [opened, closed] 
+   types: [opened] 
 
 permissions:
  pull-requests: write
@@ -44,11 +44,20 @@ jobs:
                  body: 'Cloudformation test stack deployed. Stack name: ridly-pr-test-stack-${{ github.event.pull_request.number }}'
                 })
 
-                
- cleanup-on-merge:
+on:
+  pull_request:
+    paths:
+      - 'lambda-cicd/**'
+    types: [closed] 
+ 
+ permissions:
+  pull-requests: write
+  contents: read     
+  
+jobs:
+  cleanup-on-merge:
     runs-on: ubuntu-latest
     if: github.event.action == 'closed' && github.event.pull_request.merged == true
-    needs: validate-cfn
     steps:
     - name: configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
