@@ -26,6 +26,7 @@ jobs:
             [1]: https://github.com/peter-evans/create-or-update-comment
           reactions: '+1'  
 
+
   comment-with-api:
     runs-on: ubuntu-latest
     steps:
@@ -34,7 +35,7 @@ jobs:
           gh api -X POST\
           https://api.github.com/repos/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
           -f body='
-          COmment but from the API call not action
+          Comment but from the API call not action
           '
   
         env:
