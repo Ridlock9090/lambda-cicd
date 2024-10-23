@@ -48,6 +48,7 @@ jobs:
  cleanup-on-merge:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
+    needs: validate-cfn
     steps:
     - name: configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
