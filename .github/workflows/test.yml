@@ -4,7 +4,7 @@ on:
   pull_request:
     paths:
       - 'cloudformation/**'
-    types: [opened] 
+    types: [opened]
 
 permissions:
   pull-requests: write
@@ -23,7 +23,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
 
-      - name: Validate Cloudformation template
+      - name: Validate CloudFormation template
         run: |
           aws cloudformation validate-template --template-body file://cloudformation/s3-bucket.yml
 
@@ -35,14 +35,14 @@ jobs:
       - name: Comment on the PR
         uses: actions/github-script@v7
         with:
-            github-token: ${{secrets.GITHUB_TOKEN}}
-            script: |
-                github.rest.issues.createComment({
-                 issue_number: context.issue.number,
-                 owner: context.repo.owner,
-                 repo: context.repo.repo,
-                 body: 'Cloudformation test stack deployed. Stack name: ridly-pr-test-stack-${{ github.event.pull_request.number }}'
-                })
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'CloudFormation test stack deployed. Stack name: ridly-pr-test-stack-${{ github.event.pull_request.number }}'
+            })
 
 ---
 
@@ -54,9 +54,9 @@ on:
       - 'lambda-cicd/**'
     types: [opened, closed]  # Include both opened and closed types
 
-  permissions:
-   pull-requests: write
-   contents: read     
+ permissions:
+  pull-requests: write
+  contents: read     
 
 jobs:
   cleanup-on-merge:
@@ -74,9 +74,3 @@ jobs:
         run: |
           stack_name="ridly-pr-test-stack-${{ github.event.pull_request.number }}"
           aws cloudformation delete-stack --stack-name $stack_name
-
-            
-
-
-            
-          
