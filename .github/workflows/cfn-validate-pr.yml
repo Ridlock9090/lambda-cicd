@@ -44,32 +44,35 @@ jobs:
                  body: 'Cloudformation test stack deployed. Stack name: ridly-pr-test-stack-${{ github.event.pull_request.number }}'
                 })
 
+name: Cleanup on PR Merge
+
 on:
   pull_request:
     paths:
       - 'lambda-cicd/**'
-    types: [closed] 
- 
+    types: [opened, closed]  # Include both opened and closed types
+
  permissions:
   pull-requests: write
   contents: read     
-  
+
 jobs:
   cleanup-on-merge:
     runs-on: ubuntu-latest
-    if: github.event.action == 'closed' && github.event.pull_request.merged == true
+    if: github.event.action == 'closed' && github.event.pull_request.merged == true  # Correct condition
     steps:
-    - name: configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
             
-    - name: Delete Test stack
-      run: |
-            stack_name="ridly-pr-test-stack-${{ github.event.pull_request.number }}"
-            aws cloudformation delete-stack --stack-name $stack_name
+      - name: Delete Test Stack
+        run: |
+          stack_name="ridly-pr-test-stack-${{ github.event.pull_request.number }}"
+          aws cloudformation delete-stack --stack-name $stack_name
+
             
 
 
