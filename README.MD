@@ -11,8 +11,8 @@
 # Contains Lambda script
 
 ## Under LAMBDA/
-1. lambda_function.py
-2. requirements.txt
+1. [lambda_function.py](https://github.com/Ridlock9090/lambda-cicd/blob/main/LAMBDA/lambda_function.py)
+2. [requirements.txt](https://github.com/Ridlock9090/lambda-cicd/blob/main/LAMBDA/requirements.txt)
 
 ---
 
@@ -20,6 +20,6 @@
 
 ## Under cloudformation/
 
-1. s3-bucket.yml
+1. [s3-bucket.yml](https://github.com/Ridlock9090/lambda-cicd/blob/main/cloudformation/s3-bucket.yml)
 
 ---
