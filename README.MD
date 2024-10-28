@@ -33,3 +33,32 @@ This GitHub Actions workflow, named "Validate CloudFormation on PR," is designed
 
 ### Summary:
 The workflow automates the validation and deployment of CloudFormation templates for PRs, and it cleans up the resources once the PR is merged.
+
+#cleanup-on-merge.yml is a disabled workflow
+
+===
+
+# lambda.yml
+
+## Changes to the Lambda code, runs a GitHub Actions workflow to update AWS Lambda code
+
+This GitHub Actions workflow, titled "Deploy AWS Lambda," automates the deployment of AWS Lambda functions when changes are pushed to the `main` branch, specifically for files in the `LAMBDA/` directory.
+
+### Key Components:
+
+- **Triggers:** 
+  - The workflow runs on `push` events to the `main` branch, targeting changes in the `LAMBDA/**` path.
+
+### Jobs:
+
+1. **deploy-lambda:**
+   - **Environment:** Runs on the latest Ubuntu.
+   - **Steps:**
+     - **Checkout Code:** Uses the `actions/checkout` action to retrieve the repository's code.
+     - **Set Up Python:** Installs Python version 3.12 using the `actions/setup-python` action.
+     - **Install Dependencies:** Upgrades pip and installs any necessary dependencies specified in `LAMBDA/requirements.txt`, placing them in a `lambda/` directory.
+     - **Configure AWS Credentials:** Sets up AWS credentials using secrets for access to AWS resources.
+     - **Deploy Lambda Function:** Zips the contents of the `LAMBDA` directory and updates the specified Lambda function (`my-test-cicd-lambda`) with the new code.
+
+### Summary:
+This workflow facilitates the automated deployment of an AWS Lambda function by checking out code, setting up the Python environment, installing dependencies, configuring AWS credentials, and deploying the updated function upon pushes to the main branch.
