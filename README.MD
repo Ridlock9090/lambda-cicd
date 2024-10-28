@@ -36,7 +36,7 @@ The workflow automates the validation and deployment of CloudFormation templates
 
 #cleanup-on-merge.yml is a disabled workflow
 
-===
+=====
 
 # lambda.yml
 
