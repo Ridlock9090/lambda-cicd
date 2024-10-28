@@ -1,9 +1,13 @@
+# Project for GitHub Actions Workflows
+
+---
+
 # Contains Workflow Files
 
 ## Under .github/workflows/
 
 1. [cfn-validate-pr.yml](https://github.com/Ridlock9090/lambda-cicd/blob/main/.github/workflows/cfn-validate-pr.yml)
-2. [cleanup-on-merge.yml](https://github.com/Ridlock9090/lambda-cicd/blob/main/.github/workflows/cleanup-on-merge.yml)
+2. [cleanup-on-merge.yml](https://github.com/Ridlock9090/lambda-cicd/blob/main/.github/workflows/cleanup-on-merge.yml) - disabled workflow but working code
 3. [lambda.yml](https://github.com/Ridlock9090/lambda-cicd/blob/main/.github/workflows/lambda.yml)
 
 ---
