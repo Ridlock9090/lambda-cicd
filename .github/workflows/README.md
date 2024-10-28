@@ -36,7 +36,7 @@ The workflow automates the validation and deployment of CloudFormation templates
 
 ---
 
-* .github/workflows/cleanup-on-merge.yml is a disabled workflow after incorporating all the code into one workflow in cfh-validate-pr.yml
+# .github/workflows/cleanup-on-merge.yml is a disabled workflow after incorporating all the code into one workflow in cfh-validate-pr.yml
 
 This GitHub Actions workflow, titled "Clean up on merge," is designed to automatically clean up AWS CloudFormation stacks associated with pull requests that have been merged and closed.
 
