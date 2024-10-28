@@ -2,9 +2,9 @@
 
 ## Under .github/workflows/
 
-1. cfn-validate-pr.yml
-2. cleanup-on-merge.yml
-3. lambda.yml
+1. [cfn-validate-pr.yml](https://github.com/Ridlock9090/lambda-cicd/blob/main/.github/workflows/cfn-validate-pr.yml)
+2. [cleanup-on-merge.yml](https://github.com/Ridlock9090/lambda-cicd/blob/main/.github/workflows/cleanup-on-merge.yml)
+3. [lambda.yml](https://github.com/Ridlock9090/lambda-cicd/blob/main/.github/workflows/lambda.yml)
 
 ---
 
