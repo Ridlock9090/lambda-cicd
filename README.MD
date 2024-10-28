@@ -1,4 +1,4 @@
-**Any Changes on S3 Config, a GitHub Actions Workflow is Initialized**
+*Any Changes on S3 Config, a GitHub Actions Workflow is Initialized*
 
 This GitHub Actions workflow, named "Validate CloudFormation on PR," is designed to validate and deploy AWS CloudFormation templates in response to pull requests (PRs) that affect files in the `cloudformation/` directory.
 
