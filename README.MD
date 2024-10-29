@@ -7,17 +7,17 @@
 ## Under .github/workflows/
 
 1. [cfn-validate-pr.yml](.github/workflows/cfn-validate-pr.yml) - file
-2. [cleanup-on-merge.yml](https://github.com/Ridlock9090/lambda-cicd/blob/main/.github/workflows/cleanup-on-merge.yml) - file #disabled workflow but working code
-3. [lambda.yml](https://github.com/Ridlock9090/lambda-cicd/blob/main/.github/workflows/lambda.yml) - file
-4. [README.md](https://github.com/Ridlock9090/lambda-cicd/tree/main/.github/workflows) - descriptions of the workflows
+2. [cleanup-on-merge.yml](.github/workflows/cleanup-on-merge.yml) - file #disabled workflow but working code
+3. [lambda.yml](.github/workflows/lambda.yml) - file
+4. [README.md](.github/workflows/README.md) - descriptions of the workflows
 
 ---
 
 # Contains Lambda script
 
 ## Under LAMBDA/
-1. [lambda_function.py](https://github.com/Ridlock9090/lambda-cicd/blob/main/LAMBDA/lambda_function.py) - file
-2. [requirements.txt](https://github.com/Ridlock9090/lambda-cicd/blob/main/LAMBDA/requirements.txt) - file
+1. [lambda_function.py](LAMBDA/lambda_function.py) - file
+2. [requirements.txt](LAMBDA/requirements.txt) - file
 
 ---
 
@@ -25,6 +25,6 @@
 
 ## Under cloudformation/
 
-1. [s3-bucket.yml](https://github.com/Ridlock9090/lambda-cicd/blob/main/cloudformation/s3-bucket.yml) - file
+1. [s3-bucket.yml](cloudformation/s3-bucket.yml) - file
 
 ---
